@@ -1,0 +1,31 @@
+
+<body>
+    <h2>Acitvidad Asincrónica 09 - Angular</h2>
+    <section>
+        <label>Ingrese primer valor</label>
+        <input type="number" [(ngModel)]="num1">
+    </section>
+    <section>
+        <label >Ingrese segundo valor</label>
+        <input type="number" [(ngModel)]="num2" >
+    </section>
+    
+    
+    <select [(ngModel)]="opcion" (input)="Color()">
+        <option value="ninguno">Elija una opción</option>
+        <option value="suma">Sumar</option>
+        <option value="resta">Restar</option>
+        <option value="multi">Multiplicar</option>
+        <option value="div">Dividir</option>
+    </select>
+    <p class="fs-3">Resultado:</p>
+    <span [ngSwitch]="opcion" [ngStyle]="{'color':color}"  >
+        <span *ngSwitchCase="'suma'">Suma: {{num1+num2}}</span>
+        <span *ngSwitchCase="'resta'">Resta: {{num1-num2}}</span>
+        <span *ngSwitchCase="'multi'">Multiplicación: {{num1*num2}}</span>
+        <span *ngSwitchCase="'div'">División: {{num1/num2}}</span>
+        <span *ngSwitchDefault [ngStyle]="{'color':'red'}">No eligió operación</span>
+    </span>
+</body>
+
+
